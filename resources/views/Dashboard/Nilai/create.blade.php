@@ -19,12 +19,12 @@
                     <h2 class="fw-bold mt-5">Tambah Data Nilai Mahasiswa</h2>
                 </div>
                 <div class="p-2">
-                    <form method="POST" action="insertNilai">
+                    <form method="POST" action="/nilai/insertNilai/">
                         @csrf
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nim</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="nim" id="">
+                                <input type="text" class="form-control color-neutral-400" name="nim" id="" value="{{ auth()->user()->nim }}">
                             </div>
                         </div>
 

@@ -11,12 +11,14 @@ class NilaiController extends Controller
 {
     public function index()
     {
+        // die;
         // Eloquent
         $mahasiswa = Mahasiswa::all();
         // return view('Mahasiswa.mahasiswa',compact(['mahasiswa']));
 
         // Query Builder
         $data = DB::table('nilai')->paginate(100);
+
         return view('Dashboard.Nilai.nilai', ['data' => $data], compact(['mahasiswa']));
     }
 
@@ -27,6 +29,9 @@ class NilaiController extends Controller
 
     public function insertNilai(Request $post)
     {
+        // $cek = $post->session()->get('nim');
+        // var_dump($cek);
+        // die;
         $valididatedData = $post->validate([
             'nim' => 'required',
             'kode_matkul' => 'required',

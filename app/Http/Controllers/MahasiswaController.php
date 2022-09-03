@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +32,10 @@ class MahasiswaController extends Controller
     public function insertMahasiswa(Request $post)
     {
         $this->authorize('admin');
+
+
+        $post->session()->put('nim', $post->nim);
+
         $valididatedData = $post->validate([
             'nim' => 'required',
             'nama' => 'required',
@@ -40,6 +45,19 @@ class MahasiswaController extends Controller
         ]);
 
         Mahasiswa::create($valididatedData);
+
+        DB::table('users')->insert([
+            'name' => $post->nama,
+            'email' => $post->nim . '@gmail.com',
+            'password' => bcrypt($post['nim']),
+            'nim' => $post->nim,
+        ]);
+
+        // var_dump($data);
+        // die;
+        // $valididatedData['password'] = bcrypt($valididatedData['password']);
+
+        User::create($valididatedData);
         return redirect('/mahasiswa');
     }
 

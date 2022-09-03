@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('nilai', function (Blueprint $table) {
             $table->id();
-            $table->string('nim',10);
-            $table->string('kode_matkul',6);
+            $table->string('nim', 10);
+            $table->string('kode_matkul', 6);
             $table->string('nama_matkul');
             $table->integer('nilai');
             $table->timestamps();
