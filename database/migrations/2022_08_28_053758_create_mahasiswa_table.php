@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nim',10)->unique()->index();
-            $table->string('nama',50);
+            $table->string('nim', 10)->unique()->index();
+            $table->string('nama', 50);
             $table->date('tanggal_lahir');
-            $table->enum('jenis_kelamin',['L','P']);
+            $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('prodi');
             $table->timestamps();
         });

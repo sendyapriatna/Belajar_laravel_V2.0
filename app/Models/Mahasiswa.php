@@ -21,5 +21,7 @@ class Mahasiswa extends Authenticatable
         'tanggal_lahir',
         'jenis_kelamin',
         'prodi',
+        'email',
+        'password',
     ];
 }

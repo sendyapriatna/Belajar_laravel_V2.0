@@ -1,19 +1,9 @@
 <!doctype html>
 <html lang="en">
+@extends('dashboard.layout.main')
+@section('container')
 
 <head>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!-- CSS Assets -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-
     <title>Edit Mahasiswa</title>
 </head>
 
@@ -56,7 +46,7 @@
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
                                 <div class="dropdown">
-                                    <select name="jenis_kelamin" id="status" class="btn border color-neutral-400 btn-block text-left form-control">
+                                    <select name="jenis_kelamin" id="status" class="btn border color-neutral-400 btn-block text-start form-control">
                                         <option selected>{{ $data->jenis_kelamin }}</option>
                                         <option>L</option>
                                         <option>P</option>
@@ -68,14 +58,16 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Prodi</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control color-neutral-400" name="prodi" id="" value="{{ $data->prodi }}">
+                                <input type="text" class="form-control color-neutral-400" name="prodi" id="" value="{{ $data->prodi }}">
                             </div>
                         </div>
 
                         <div class="form-group row mx-1 py-2">
-                            <label for="" class="col-3"></label>
-                            <button type="submit" class="btn btn-primary ml-1 px-4 py-3">Simpan</button>
-                            <a href="/mahasiswa" type="button" class="btn btn-outline-danger ml-2 px-4 py-3"> Batal </a>
+                            <div class="col">
+                                <label for="" class="col-3"></label>
+                                <button type="submit" class="btn btn-primary ml-1 px-4 py-3">Simpan</button>
+                                <a href="/mahasiswa" type="button" class="btn btn-outline-danger ml-2 px-4 py-3"> Batal </a>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -84,3 +76,4 @@
     </div>
 
 </body>
+@endsection
