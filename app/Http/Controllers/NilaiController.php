@@ -17,14 +17,18 @@ class NilaiController extends Controller
         // return view('Mahasiswa.mahasiswa',compact(['mahasiswa']));
 
         // Query Builder
-        $data = DB::table('nilai')->paginate(100);
+        $data = DB::table('nilai')->paginate(10);
 
         return view('Dashboard.Nilai.nilai', ['data' => $data], compact(['mahasiswa']));
     }
 
     public function create()
     {
-        return view('Dashboard.Nilai.create');
+        $matkul = DB::table('matkul')->get();
+        $data = array(
+            'matkul' => $matkul,
+        );
+        return view('Dashboard.Nilai.create', $data);
     }
 
     public function insertNilai(Request $post)
@@ -36,7 +40,7 @@ class NilaiController extends Controller
             'nim' => 'required',
             'kode_matkul' => 'required',
             'nama_matkul' => 'required',
-            'nilai' => 'required',
+            // 'nilai' => 'required',
         ]);
 
         Nilai::create($valididatedData);

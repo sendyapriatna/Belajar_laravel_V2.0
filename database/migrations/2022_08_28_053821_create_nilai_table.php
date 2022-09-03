@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nim', 10);
             $table->string('kode_matkul', 6);
             $table->string('nama_matkul');
-            $table->integer('nilai');
+            $table->integer('nilai')->default('0');
             $table->timestamps();
 
             $table->foreign('nim')->references('nim')->on('mahasiswa');

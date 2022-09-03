@@ -21,13 +21,13 @@
             <li class="nav-item">
                 <a class="nav-link {{Request::is('matkul*')? 'active' : ''}}" href="/matkul">
                     <i class="bi bi-journal-plus"></i>
-                    Data Mata Kuliah
+                    Daftar Mata Kuliah
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{Request::is('nilai*')? 'active' : ''}}" href="/nilai">
                     <i class="bi bi-clipboard-check"></i>
-                    Detail Informasi
+                    Detail
                 </a>
             </li>
         </ul>

@@ -57,7 +57,7 @@ class MahasiswaController extends Controller
         // die;
         // $valididatedData['password'] = bcrypt($valididatedData['password']);
 
-        User::create($valididatedData);
+        // User::create($valididatedData2);
         return redirect('/mahasiswa');
     }
 
