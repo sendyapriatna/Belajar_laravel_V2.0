@@ -22,7 +22,7 @@ use GuzzleHttp\Middleware;
 */
 
 Route::get('/', function () {
-    return view('Login.index');
+    return view('welcome');
 });
 
 // Route::get('/mahasiswa', function () {
