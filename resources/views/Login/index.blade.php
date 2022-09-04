@@ -73,7 +73,7 @@
       </div>
 
       <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-      <small class="d-block text-center mt-3">Don't have account? <a href="/register" style="text-decoration: none;">Register</a></small>
+      <!-- <small class="d-block text-center mt-3">Don't have account? <a href="/register" style="text-decoration: none;">Register</a></small> -->
       <p class="mt-3 mb-3 text-muted">&copy; Sendy Apriatna 2022</p>
     </form>
   </main>
