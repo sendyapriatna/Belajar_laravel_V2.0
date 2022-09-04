@@ -26,8 +26,8 @@ class MatkulController extends Controller
     {
         $this->authorize('admin');
         $valididatedData = $post->validate([
-            'kode_matkul' => 'required',
-            'nama_matkul' => 'required',
+            'kode_matkul' => 'required|unique:matkul',
+            'nama_matkul' => 'required|unique:matkul',
             'sks' => 'required',
         ]);
 

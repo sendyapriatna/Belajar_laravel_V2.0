@@ -49,6 +49,7 @@ Route::post('/nilai/insertNilai', [NilaiController::class, 'insertNilai'])->midd
 Route::get('/nilai/editNilai/{id}', [NilaiController::class, 'editNilai'])->middleware('auth');
 Route::post('/nilai/updateNilai', [NilaiController::class, 'updateNilai'])->middleware('auth');
 Route::get('/nilai/hapusNilai/{id}', [NilaiController::class, 'hapusNilai'])->middleware('auth');
+Route::get('/cetak', [NilaiController::class, 'cetak'])->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login/insertLogin', [LoginController::class, 'insertLogin']);
@@ -58,11 +59,12 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register/insertRegister', [RegisterController::class, 'insertRegister']);
 
 
-Route::get(
-    '/dashboard',
-    function () {
-        return view('Dashboard.index');
-    }
-)->middleware('auth');
+// Route::get(
+//     '/dashboard',
+//     function () {
+//         return view('Dashboard.index');
+//     }
+// )->middleware('auth');
 
-Route::resource('/dashboard/mahasiswa', AdminCategoryController::class);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/cetak_pdf', [NilaiController::class, 'cetak_pdf'])->middleware('auth');

@@ -7,6 +7,8 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use PDF;
+
 class NilaiController extends Controller
 {
     public function index()
@@ -21,6 +23,21 @@ class NilaiController extends Controller
 
         return view('Dashboard.Nilai.nilai', ['data' => $data], compact(['mahasiswa']));
     }
+
+    public function cetak()
+    {
+        $this->authorize('admin');
+        // die;
+        // Eloquent
+        $mahasiswa = Mahasiswa::all();
+        // return view('Mahasiswa.mahasiswa',compact(['mahasiswa']));
+
+        // Query Builder
+        $data = DB::table('nilai')->paginate(10);
+
+        return view('Dashboard.Nilai.cetak', ['data' => $data], compact(['mahasiswa']));
+    }
+
 
     public function create()
     {
@@ -38,8 +55,8 @@ class NilaiController extends Controller
         // die;
         $valididatedData = $post->validate([
             'nim' => 'required',
-            'kode_matkul' => 'required',
-            'nama_matkul' => 'required',
+            'kode_matkul' => 'required|unique:nilai',
+            'nama_matkul' => 'required|unique:nilai',
             // 'nilai' => 'required',
         ]);
 
@@ -70,4 +87,13 @@ class NilaiController extends Controller
         DB::table('nilai')->where('id', $id)->delete();
         return redirect('/nilai');
     }
+
+    // public function cetak_pdf()
+    // {
+    //     $data = Nilai::all();
+    //     $mahasiswa = Mahasiswa::all();
+
+    //     $pdf = PDF::loadView('/Dashboard.Nilai.nilai', ['data' => $data], ['mahasiswa' => $mahasiswa]);
+    //     return $pdf->download('nilai.pdf');
+    // }
 }

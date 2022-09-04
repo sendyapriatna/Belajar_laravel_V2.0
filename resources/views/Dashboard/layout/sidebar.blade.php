@@ -20,7 +20,7 @@
             @endcan
             <li class="nav-item">
                 <a class="nav-link {{Request::is('matkul*')? 'active' : ''}}" href="/matkul">
-                    <i class="bi bi-journal-plus"></i>
+                    <i class="bi bi-book"></i>
                     Daftar Mata Kuliah
                 </a>
             </li>

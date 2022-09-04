@@ -7,20 +7,16 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class MahasiswaController extends Controller
+class DashboardController extends Controller
 {
-    // public function admin()
-    // {
-    //     if (auth()->guest() || auth()->user()->name !== 'admin') {
-    //         abort(403);
-    //     }
-    // }
     public function index()
     {
-        $this->authorize('admin');
         // Query Builder
-        $data = DB::table('mahasiswa')->orderByRaw('nim')->paginate(10);
-        return view('Dashboard.Mahasiswa.mahasiswa', ['data' => $data]);
+        $data = DB::table('mahasiswa')->count();
+        $data2 = DB::table('matkul')->count();
+        // var_dump($data);
+        // die;
+        return view('Dashboard.index', ['data' => $data], ['data2' => $data2]);
     }
 
     public function create()
